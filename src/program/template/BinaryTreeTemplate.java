@@ -1,4 +1,4 @@
-package program;
+package program.template;
 
 import java.util.List;
 

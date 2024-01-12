@@ -13,16 +13,10 @@ public class _75 {
         Arrays.stream(arr).forEach(System.out::print);
     }
     public static class Solution{
+        //方法1：两两比较，冒泡排序法
         public void sortColors(int[] nums) {
-            int[] a = new int[3];
-            ArrayList<Integer> res = new ArrayList<>();
-            for (int num : nums) {
-                ++a[num];
-            }
-            for (int i = 0; i < a.length; i++) {
-                for (int j = 0; j < a[i]; j++) {
-                    res.add(i);
-                }
+            for (int i = 0; i < nums.length; i++) {
+
             }
         }
     }

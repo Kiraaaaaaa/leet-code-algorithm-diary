@@ -1,13 +1,11 @@
 package program;
 
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-
-public class _67 {
+public class LCR_002 {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        String s = solution.addBinary("101111", "10");
+        String s = solution.addBinary_1("101111", "10");
         System.out.println(s);
+        System.out.println(Integer.bitCount(3));
     }
     public static class Solution {
         //方法1.写的比较复杂，不推荐看
@@ -89,6 +87,22 @@ public class _67 {
                 sb.append("1");
             }
             return sb.reverse().toString();
+        }
+        //方法2，官方解法
+        public String addBinary_1(String a, String b) {
+            int len = Math.max(a.length(), b.length());
+            int carry = 0; //carry代表进位，有0、1、2三种可能
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < len; i++) {
+                //同时计算a和b的最后一位相加结果，如果其中一个字符串长度较短，剩余部分将会以0作替代
+                carry += i<a.length()?(a.charAt(a.length()-i-1)-'0'):0;
+                carry += i<b.length()?(b.charAt(b.length()-i-1)-'0'):0;
+                sb.append(carry%2); //将结果转换为字符串
+                carry /= 2; //0和1会被转换成0，代表没有进位，而2会被转换为1代表进了一位，将纳入下一次计算
+            }
+            if(carry == 1) sb.append("1"); //如果最后一位进位，则追加1
+            sb.reverse();
+            return sb.toString();
         }
     }
 }

@@ -43,7 +43,7 @@ public class _236 {
             TreeNode left = lowestCommonAncestor(root.left, p, q);
             // 递归右子节点，返回值记为right
             TreeNode right = lowestCommonAncestor(root.right, p, q);
-            if(left == null && right == null) return null;
+            if(left == null && right == null) return null; //这句也可以不用写，因为下面if判断会直接返回null，不过有助于理解
             //如果左子树结果为空，则返回右子树的结果，这里可以视为向上报告。如果p和q在同一路径下(也就是p是q的祖先，或q是p的祖先)，则会被更上面的所替代。
             if(left == null) return right;
             //如果右子树结果为空，则返回左子树的结果，这里可以视为向上报告。如果p和q在同一路径下(也就是p是q的祖先，或q是p的祖先)，则会被更上面的所替代。

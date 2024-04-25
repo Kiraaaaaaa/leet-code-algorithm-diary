@@ -12,7 +12,7 @@ public class _11 {
     }
     public static class Solution{
         /**
-         * 使用双指针，数值较低的一方移动，试图寻找最大区间
+         * 使用双指针，每次比较两指针的值，数值较低的一方向内移动，因为数值较低的才能决定水桶容量，继续拓展看是否能得到更高的高度
          * @param height
          * @return
          */

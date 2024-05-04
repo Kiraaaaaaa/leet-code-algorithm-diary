@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class _34 {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int[] res = solution.searchRange_1(new int[]{5, 7, 7, 8, 8, 10}, 8);
+        int[] res = solution.searchRange(new int[]{5, 7, 7, 8, 8, 10}, 8);
         Arrays.stream(res).forEach(System.out::println);
     }
     public static class Solution {

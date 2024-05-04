@@ -1,5 +1,7 @@
 package program;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class kth_node_from_end_of_list_lcci {
     public static void main(String[] args) {
         Solution solution = new Solution();
         ListNode root = buildList();
-        int head = solution.kthToLast_1(root.next, 2);
+        int head = solution.kthToLast_3(root.next, 2);
         System.out.println(head);
     }
     public static class Solution {
@@ -58,6 +60,31 @@ public class kth_node_from_end_of_list_lcci {
             }
 
             return slow.val;
+        }
+
+        //下面的纯暴力，都没意思
+
+        //方法3.list按顺序存储所有节点
+        public int kthToLast_2(ListNode head, int k) {
+            ArrayList<Integer> list = new ArrayList<>();
+            while(head != null){
+                list.add(head.val);
+                head = head.next;
+            }
+            return list.get(list.size()-k);
+        }
+
+        //方法4.存到栈/队列里，实际上java的双端队列ArrayDeque可以实现栈和队列，所以都行
+        public int kthToLast_3(ListNode head, int k) {
+            ArrayDeque<Integer> stack = new ArrayDeque<>();
+            while (head != null){
+                stack.offer(head.val); //入栈
+                head = head.next;
+            }
+            while (--k > 0){
+                stack.pollLast(); //出栈，如果是队列，则这里调用poll()或者pollFirst()，并循环stack.size()-k次
+            }
+            return stack.pollLast(); //出栈，如果是队列，则这里调用poll()或者pollFirst()
         }
     }
 }

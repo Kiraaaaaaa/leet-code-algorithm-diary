@@ -2,7 +2,6 @@ package program;
 
 import java.util.HashMap;
 
-//比赛专用
 public class _100284 {
     public static void main(String[] args) {
         Solution solution = new Solution();

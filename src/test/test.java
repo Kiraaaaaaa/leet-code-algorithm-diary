@@ -7,8 +7,8 @@ public class test {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("本线程准备获取锁");
         ReentrantLock lock = new ReentrantLock();
+        lock.lockInterruptibly(); //获取锁
         try{
-            lock.lockInterruptibly(); //获取锁
             System.out.println("本线程获取锁成功");
             System.out.println("开始打断本线程");
             Thread.currentThread().interrupt(); //打断线程

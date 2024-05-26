@@ -11,11 +11,13 @@ public class _3 {
         System.out.println(res);
     }
     public static class Solution{
+
+        //方法.set存储当前字符串的字符，如果遇到的字符在set中，则说明当前字符串有重复的字符，则需要移动left指针
         public int lengthOfLongestSubstring(String s) {
             int left = 0, right = 0, maxLen = 0, count = 0;
             HashSet<Character> set = new HashSet<>();
             while(right<s.length()){
-                //如果剩余待遍历的字符串长度已经低于找到的最大长度，则没有必要继续找了
+                //剪枝：如果剩余待遍历的字符串长度已经低于找到的最大长度，则没有必要继续找了
                 if(s.length()-left <= maxLen) break;
                 char c = s.charAt(right);
                 //如果当前字符串中有重复的字符
@@ -54,7 +56,7 @@ public class _3 {
                 }
                 //更新最大长度
                 maxLen = Math.max(maxLen, end-start+1);
-                //劲当前遍历的字符和位置存到map中，如果不存在就是新增，如果存在就是更新
+                //当前遍历的字符和位置存到map中，如果不存在就是新增，如果存在就是更新
                 map.put(c, end);
             }
             return maxLen;

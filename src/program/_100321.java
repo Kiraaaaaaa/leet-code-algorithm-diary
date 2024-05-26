@@ -3,17 +3,16 @@ package program;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.TreeMap;
 
-public class _bisai {
+public class _100321 {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int res = solution.method("leetcodeleet", 4);
+        long res = solution.numberOfPairs(new int[]{4,3,4,18}, new int[]{4,3,4,18}, 1);
         System.out.println(res);
     }
     public static class Solution {
-        public int method(String leetcodeleet, int i) {
-            return 0;
+        public long numberOfPairs(int[] nums1, int[] nums2, int k) {
+            return 1;
         }
     }
 }
